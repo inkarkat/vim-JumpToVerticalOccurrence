@@ -1,0 +1,106 @@
+*JumpToVerticalOccurrence.txt*	Like f{char}, but searching the same screen column, not line.
+
+		JUMP TO VERTICAL OCCURRENCE    by Ingo Karkat
+						*JumpToVerticalOccurrence.vim*
+description			|JumpToVerticalOccurrence-description|
+usage				|JumpToVerticalOccurrence-usage|
+installation			|JumpToVerticalOccurrence-installation|
+configuration			|JumpToVerticalOccurrence-configuration|
+integration			|JumpToVerticalOccurrence-integration|
+limitations			|JumpToVerticalOccurrence-limitations|
+known problems			|JumpToVerticalOccurrence-known-problems|
+todo				|JumpToVerticalOccurrence-todo|
+history				|JumpToVerticalOccurrence-history|
+
+==============================================================================
+DESCRIPTION				*JumpToVerticalOccurrence-description*
+
+This plugin ...
+
+HOW IT WORKS								     *
+
+SOURCE									     *
+
+Inspired by
+    http://stackoverflow.com/questions/20882722/move-to-the-next-row-which-has-non-white-space-character-in-the-same-column-in-v
+
+SEE ALSO								     *
+(Plugins offering complementary functionality, or plugins using this library.)
+
+RELATED WORKS								     *
+(Alternatives from other authors, other approaches, references not used here.)
+
+==============================================================================
+USAGE					      *JumpToVerticalOccurrence-usage*
+
+					 *]v* *[v* *v_]v* *v_[v* *o_]v* *o_[v*
+]v		    To [count]'th occurrence of the character under the cursor
+		    in the same screen column of following lines.
+[v		    To [count]'th occurrence of the character under the cursor
+		    in the same screen column of previous lines.
+
+					 *]V* *[V* *v_]V* *v_[V* *o_]V* *o_[V*
+]V{char}	    To [count]'th occurrence of {char} in the same screen
+		    column of following lines. Like |f|, but vertically.
+[V{char}	    To [count]'th occurrence of {char} in the same screen
+		    column of previous lines. Like |F|, but vertically.
+		    You can quickly repeat the same motion via the |]v| / |[v|
+		    mappings (like |;| / |,| for |f|).
+
+==============================================================================
+INSTALLATION			       *JumpToVerticalOccurrence-installation*
+
+This script is packaged as a |vimball|. If you have the "gunzip" decompressor
+in your PATH, simply edit the *.vmb.gz package in Vim; otherwise, decompress
+the archive first, e.g. using WinZip. Inside Vim, install by sourcing the
+vimball or via the |:UseVimball| command. >
+    vim JumpToVerticalOccurrence*.vmb.gz
+    :so %
+To uninstall, use the |:RmVimball| command.
+
+DEPENDENCIES			       *JumpToVerticalOccurrence-dependencies*
+
+- Requires Vim 7.0 or higher.
+- Requires the CountJump plugin (vimscript #3130), version 1.60 or higher.
+- Requires the |ingo-library.vim| plugin (vimscript #4433), version 1.005 or
+  higher.
+
+==============================================================================
+CONFIGURATION			      *JumpToVerticalOccurrence-configuration*
+
+For a permanent configuration, put the following commands into your |vimrc|:
+					      *JumpToVerticalOccurrence-remap*
+If you want to use different mappings, map your keys to the
+<Plug>(JumpToVerticalOccurrence...) mapping targets _before_ sourcing the script
+(e.g. in your |vimrc|): >
+    map <Leader>j <Plug>(JumpToVerticalOccurrenceForward)
+    map <Leader>k <Plug>(JumpToVerticalOccurrenceBackward)
+<
+==============================================================================
+INTEGRATION				*JumpToVerticalOccurrence-integration*
+
+==============================================================================
+LIMITATIONS				*JumpToVerticalOccurrence-limitations*
+
+KNOWN PROBLEMS			     *JumpToVerticalOccurrence-known-problems*
+
+TODO					       *JumpToVerticalOccurrence-todo*
+
+IDEAS					      *JumpToVerticalOccurrence-ideas*
+
+==============================================================================
+HISTORY					    *JumpToVerticalOccurrence-history*
+
+GOAL
+First published version.
+
+0.01	02-Jan-2014
+Started development.
+
+==============================================================================
+Copyright: (C) 2014 Ingo Karkat
+The VIM LICENSE applies to this plugin; see |copyright|.
+
+Maintainer:	Ingo Karkat <ingo@karkat.de>
+==============================================================================
+ vim:tw=78:ts=8:ft=help:norl:

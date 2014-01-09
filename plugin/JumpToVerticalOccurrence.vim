@@ -16,6 +16,8 @@
 "				Add ]v / [v variant that jumps to the character
 "				under the cursor. This is also useful for
 "				repeating the ]V mappings without the query.
+"				Add ]| / [| variant that jumps to non-whitespace
+"				character in the same column.
 "	001	02-Jan-2014	file creation
 
 " Avoid installing twice or when in unsupported Vim version.
@@ -34,6 +36,9 @@ endif
 if ! exists('g:JumpToVerticalOccurrence_QueriedMapping')
     let g:JumpToVerticalOccurrence_QueriedMapping = 'V'
 endif
+if ! exists('g:JumpToVerticalOccurrence_NonWhitespaceMapping')
+    let g:JumpToVerticalOccurrence_NonWhitespaceMapping = '<Bar>'
+endif
 
 
 "- mappings --------------------------------------------------------------------
@@ -48,6 +53,12 @@ call CountJump#Motion#MakeBracketMotionWithJumpFunctions(
 \   '', g:JumpToVerticalOccurrence_QueriedMapping, '',
 \   function('JumpToVerticalOccurrence#QueriedForward'),
 \   function('JumpToVerticalOccurrence#QueriedBackward'),
+\   '', '', 0
+\)
+call CountJump#Motion#MakeBracketMotionWithJumpFunctions(
+\   '', g:JumpToVerticalOccurrence_NonWhitespaceMapping, '',
+\   function('JumpToVerticalOccurrence#NonWhitespaceForward'),
+\   function('JumpToVerticalOccurrence#NonWhitespaceBackward'),
 \   '', '', 0
 \)
 

@@ -13,10 +13,12 @@
 " REVISION	DATE		REMARKS
 "	002	03-Jan-2014	Implement jump to character under cursor
 "				variant.
+"				Implement jump to non-whitespace character in
+"				the same column.
 "	001	02-Jan-2014	file creation
 
-function! s:Jump( source, mode, directionFlag )
-    if a:source ==# 'query'
+function! s:Jump( target, mode, directionFlag )
+    if a:target ==# 'query'
 	let l:char = ingo#query#get#Char()
 	if empty(l:char) | return [0, 0] | endif
     endif
@@ -31,7 +33,7 @@ function! s:Jump( source, mode, directionFlag )
     endif
 
 	let l:virtCol = virtcol('.')
-	if a:source ==# 'cursor'
+	if a:target ==# 'cursor'
 	    let l:char = ingo#text#GetChar(getpos('.')[1:2])
 	endif
 
@@ -41,8 +43,14 @@ function! s:Jump( source, mode, directionFlag )
 	" command.
     endif
 
-    if empty(l:char) | return [0, 0] | endif
-    let l:columnCharPattern = printf('\C\V\%%%dv%s', l:virtCol, escape(l:char, '\'))
+    if a:target ==# 'nonwhitespace'
+	let l:pattern = '\S'
+    else
+	let l:pattern = escape(l:char, '\')
+    endif
+    if empty(l:pattern) | return [0, 0] | endif
+
+    let l:columnCharPattern = printf('\C\V\%%%dv%s', l:virtCol, l:pattern)
     return CountJump#CountJump(a:mode, l:columnCharPattern, a:directionFlag . 'W')
 endfunction
 
@@ -58,6 +66,13 @@ function! JumpToVerticalOccurrence#CharUnderCursorForward( mode )
 endfunction
 function! JumpToVerticalOccurrence#CharUnderCursorBackward( mode )
     return s:Jump('cursor', a:mode, 'b')
+endfunction
+
+function! JumpToVerticalOccurrence#NonWhitespaceForward( mode )
+    return s:Jump('nonwhitespace', a:mode, '')
+endfunction
+function! JumpToVerticalOccurrence#NonWhitespaceBackward( mode )
+    return s:Jump('nonwhitespace', a:mode, 'b')
 endfunction
 
 " vim: set ts=8 sts=4 sw=4 noexpandtab ff=unix fdm=syntax :

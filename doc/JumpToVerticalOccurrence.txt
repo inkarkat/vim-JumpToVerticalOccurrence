@@ -6,7 +6,6 @@ description			|JumpToVerticalOccurrence-description|
 usage				|JumpToVerticalOccurrence-usage|
 installation			|JumpToVerticalOccurrence-installation|
 configuration			|JumpToVerticalOccurrence-configuration|
-integration			|JumpToVerticalOccurrence-integration|
 limitations			|JumpToVerticalOccurrence-limitations|
 known problems			|JumpToVerticalOccurrence-known-problems|
 todo				|JumpToVerticalOccurrence-todo|
@@ -21,7 +20,7 @@ HOW IT WORKS								     *
 
 SOURCE									     *
 
-Inspired by
+The ]| mapping was inspired by
     http://stackoverflow.com/questions/20882722/move-to-the-next-row-which-has-non-white-space-character-in-the-same-column-in-v
 
 SEE ALSO								     *
@@ -47,6 +46,12 @@ USAGE					      *JumpToVerticalOccurrence-usage*
 		    You can quickly repeat the same motion via the |]v| / |[v|
 		    mappings (like |;| / |,| for |f|).
 
+			     *]bar* *[bar* *v_]bar* *v_[bar* *o_]bar* *o_[bar*
+]|		    To [count]'th next line that has non-whitespace in the
+		    same column as the current one.
+[|		    To [count]'th previous line that has non-whitespace in the
+		    same column as the current one.
+
 ==============================================================================
 INSTALLATION			       *JumpToVerticalOccurrence-installation*
 
@@ -70,14 +75,12 @@ CONFIGURATION			      *JumpToVerticalOccurrence-configuration*
 
 For a permanent configuration, put the following commands into your |vimrc|:
 					      *JumpToVerticalOccurrence-remap*
-If you want to use different mappings, map your keys to the
-<Plug>(JumpToVerticalOccurrence...) mapping targets _before_ sourcing the script
-(e.g. in your |vimrc|): >
-    map <Leader>j <Plug>(JumpToVerticalOccurrenceForward)
-    map <Leader>k <Plug>(JumpToVerticalOccurrenceBackward)
-<
-==============================================================================
-INTEGRATION				*JumpToVerticalOccurrence-integration*
+To change the default motion mappings, use: >
+    let g:JumpToVerticalOccurrence_CharUnderCursorMapping = 'v'
+    let g:JumpToVerticalOccurrence_QueriedMapping = 'V'
+    let g:JumpToVerticalOccurrence_NonWhitespaceMapping = '<Bar>'
+To also change the [ / ] prefix to something else, follow the instructions for
+|CountJump-remap-motions|. (This requires CountJump 1.60.)
 
 ==============================================================================
 LIMITATIONS				*JumpToVerticalOccurrence-limitations*

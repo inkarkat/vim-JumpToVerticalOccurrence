@@ -18,7 +18,7 @@
 "	001	02-Jan-2014	file creation
 
 function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
-    if l:count
+    if a:count
 	" Search for a different non-whitespace character in the exact column.
 	let l:beyondColumnCharPattern = printf('\C\V\%%%dv%s\@!\S', a:virtCol, a:pattern)
     else
@@ -26,22 +26,31 @@ function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
 	" - a different character in the exact column
 	" - a whitespace character just before the column, with no match at it
 	" - a shorter line
-	let l:beyondColumnCharPattern = printf('\C\V\%%%dv%s\@!\|\%%<%dv\s\%%>%dv\|\%%<%dv$',
+	let l:beyondColumnCharPattern = printf('\C\V\%%%dv%s\@!\|\%%<%dv\s\%%>%dv\|\%%<%dv\$',
 	\   a:virtCol, a:pattern, a:virtCol, a:virtCol, a:virtCol
 	\)
     endif
 
     let l:beyondLnum = search(l:beyondColumnCharPattern, a:directionFlag . 'nw')
     let l:lastSameLnum = l:beyondLnum + (empty(a:directionFlag) ? -1 : 1)
-    if l:lnum && (
+echomsg '****' string(l:beyondLnum) string(l:lastSameLnum)
+    if l:beyondLnum && (
     \   empty(a:directionFlag)  && l:lastSameLnum > line('.') ||
     \   a:directionFlag ==# 'b' && l:lastSameLnum < line('.')
     \)
+	if a:mode ==? 'v'
+	    normal! gv
+	endif
+
+	normal! m'
+	call ingo#cursor#Set(l:lastSameLnum, a:virtCol)
     else
 	execute "normal! \<C-\>\<C-n>\<Esc>" | " Beep.
     endif
 endfunction
 function! s:Jump( target, mode, directionFlag )
+    let l:count = v:count   " Save the given [count] before the normal mode command clobbers it.
+
     if a:target ==# 'query'
 	let l:char = ingo#query#get#Char()
 	if empty(l:char) | return [0, 0] | endif
@@ -52,12 +61,11 @@ function! s:Jump( target, mode, directionFlag )
 	" the cursor to the start of the selection. We need to re-establish the
 	" selection to get the actual original cursor position when the mapping
 	" was triggered.
-	let l:count = v:count   " Save the given [count] before the normal mode command clobbers it.
 	normal! gv
     endif
 
 	let l:virtCol = virtcol('.')
-	if a:target ==# 'cursor'
+	if a:target ==# 'cursor' || a:target ==# 'lastsame'
 	    let l:char = ingo#text#GetChar(getpos('.')[1:2])
 	endif
 

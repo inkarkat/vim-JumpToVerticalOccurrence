@@ -39,6 +39,9 @@ endif
 if ! exists('g:JumpToVerticalOccurrence_NonWhitespaceMapping')
     let g:JumpToVerticalOccurrence_NonWhitespaceMapping = '<Bar>'
 endif
+if ! exists('g:JumpToVerticalOccurrence_LastSameCharMapping')
+    let g:JumpToVerticalOccurrence_LastSameCharMapping = '!'
+endif
 
 
 "- mappings --------------------------------------------------------------------
@@ -59,6 +62,12 @@ call CountJump#Motion#MakeBracketMotionWithJumpFunctions(
 \   '', g:JumpToVerticalOccurrence_NonWhitespaceMapping, '',
 \   function('JumpToVerticalOccurrence#NonWhitespaceForward'),
 \   function('JumpToVerticalOccurrence#NonWhitespaceBackward'),
+\   '', '', 0
+\)
+call CountJump#Motion#MakeBracketMotionWithJumpFunctions(
+\   '', g:JumpToVerticalOccurrence_LastSameCharMapping, '',
+\   function('JumpToVerticalOccurrence#LastSameCharForward'),
+\   function('JumpToVerticalOccurrence#LastSameCharBackward'),
 \   '', '', 0
 \)
 

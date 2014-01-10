@@ -52,6 +52,14 @@ USAGE					      *JumpToVerticalOccurrence-usage*
 [|		    To [count]'th previous line that has non-whitespace in the
 		    same column as the current one.
 
+					 *]!* *[!* *v_]!* *v_[!* *o_]!* *o_[!*
+]!		    To the last continuous occurrence of the character under
+		    the cursor in the same screen column. With any [count],
+		    skips over whitespace and shorter lines.
+[!		    To the first continuous occurrence of the character under
+		    the cursor in the same screen column. With any [count],
+		    skips over whitespace and shorter lines.
+
 ==============================================================================
 INSTALLATION			       *JumpToVerticalOccurrence-installation*
 

@@ -17,6 +17,30 @@
 "				the same column.
 "	001	02-Jan-2014	file creation
 
+function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
+    if l:count
+	" Search for a different non-whitespace character in the exact column.
+	let l:beyondColumnCharPattern = printf('\C\V\%%%dv%s\@!\S', a:virtCol, a:pattern)
+    else
+	" Search for one of:
+	" - a different character in the exact column
+	" - a whitespace character just before the column, with no match at it
+	" - a shorter line
+	let l:beyondColumnCharPattern = printf('\C\V\%%%dv%s\@!\|\%%<%dv\s\%%>%dv\|\%%<%dv$',
+	\   a:virtCol, a:pattern, a:virtCol, a:virtCol, a:virtCol
+	\)
+    endif
+
+    let l:beyondLnum = search(l:beyondColumnCharPattern, a:directionFlag . 'nw')
+    let l:lastSameLnum = l:beyondLnum + (empty(a:directionFlag) ? -1 : 1)
+    if l:lnum && (
+    \   empty(a:directionFlag)  && l:lastSameLnum > line('.') ||
+    \   a:directionFlag ==# 'b' && l:lastSameLnum < line('.')
+    \)
+    else
+	execute "normal! \<C-\>\<C-n>\<Esc>" | " Beep.
+    endif
+endfunction
 function! s:Jump( target, mode, directionFlag )
     if a:target ==# 'query'
 	let l:char = ingo#query#get#Char()
@@ -50,8 +74,12 @@ function! s:Jump( target, mode, directionFlag )
     endif
     if empty(l:pattern) | return [0, 0] | endif
 
-    let l:columnCharPattern = printf('\C\V\%%%dv%s', l:virtCol, l:pattern)
-    return CountJump#CountJump(a:mode, l:columnCharPattern, a:directionFlag . 'W')
+    if a:target ==# 'lastsame'
+	return s:LastSameJump(l:virtCol, l:pattern, l:count, a:directionFlag, a:mode)
+    else
+	let l:columnCharPattern = printf('\C\V\%%%dv%s', l:virtCol, l:pattern)
+	return CountJump#CountJump(a:mode, l:columnCharPattern, a:directionFlag . 'W')
+    endif
 endfunction
 
 function! JumpToVerticalOccurrence#QueriedForward( mode )
@@ -73,6 +101,13 @@ function! JumpToVerticalOccurrence#NonWhitespaceForward( mode )
 endfunction
 function! JumpToVerticalOccurrence#NonWhitespaceBackward( mode )
     return s:Jump('nonwhitespace', a:mode, 'b')
+endfunction
+
+function! JumpToVerticalOccurrence#LastSameCharForward( mode )
+    return s:Jump('lastsame', a:mode, '')
+endfunction
+function! JumpToVerticalOccurrence#LastSameCharBackward( mode )
+    return s:Jump('lastsame', a:mode, 'b')
 endfunction
 
 " vim: set ts=8 sts=4 sw=4 noexpandtab ff=unix fdm=syntax :

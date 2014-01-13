@@ -10,6 +10,8 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"	003	11-Jan-2014	Add ]! / [! variant that jumps to last
+"				continuous occurrence of character under cursor.
 "	002	03-Jan-2014	Change default mapping from ,j / ,k to ]V / [V.
 "				Change mapping configuration from
 "				<Plug>-mappings to configuration variables.

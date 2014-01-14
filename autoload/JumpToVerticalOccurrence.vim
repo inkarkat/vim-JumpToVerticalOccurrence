@@ -4,6 +4,7 @@
 "   - ingo/query/get.vim autoload script
 "   - ingo/text.vim autoload script
 "   - CountJump.vim autoload script
+"   - repeat.vim (vimscript #2136) autoload script (optional)
 "
 " Copyright: (C) 2014 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
@@ -11,6 +12,19 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"   	004	15-Jan-2014	ENH: Implement repeat of operator-pending
+"				]V{char} mapping without re-querying the {char}.
+"				Since Vim 7.3.918, Vim will re-invoke the motion
+"				function, but that will still re-query. We need
+"				to use repeat.vim and pass it a special repeat
+"				mapping that re-uses the stored {char}. Special
+"				handling of the "c"hange operator is taken from
+"				https://github.com/tek/vim-argh/blob/master/autoload/argh.vim#L54.
+"				In s:Jump, store the last queried char in s:char
+"				and re-use that on new "repeat" target.
+"				Add repeat.vim calls in
+"				JumpToVerticalOccurrence#Queried...() in case of
+"				omaps.
 "	003	11-Jan-2014	Implement jump to last continuous occurrence of
 "				character under cursor variant.
 "	002	03-Jan-2014	Implement jump to character under cursor
@@ -85,8 +99,11 @@ function! s:Jump( target, mode, directionFlag )
     let l:count = v:count   " Save the given [count] before the normal mode command clobbers it.
 
     if a:target ==# 'query'
-	let l:char = ingo#query#get#Char()
-	if empty(l:char) | return [0, 0] | endif
+	let s:char = ingo#query#get#Char()
+	if empty(s:char) | return [0, 0] | endif
+	let l:char = s:char
+    elseif a:target ==# 'repeat'
+	let l:char = s:char
     endif
 
     if a:mode ==? 'v'
@@ -123,11 +140,21 @@ function! s:Jump( target, mode, directionFlag )
     endif
 endfunction
 
-function! JumpToVerticalOccurrence#QueriedForward( mode )
-    return s:Jump('query', a:mode, '')
+function! JumpToVerticalOccurrence#QueriedForward( mode, ... )
+    let l:operator = v:operator
+    let l:count = v:count1
+    call s:Jump((a:0 ? 'repeat' : 'query'), a:mode, '')
+    if a:mode ==# 'o'
+	silent! call repeat#set(l:operator . "\<Plug>JumpToVerticalOccurrenceQueriedRepeatForward" . (l:operator ==# 'c' ? "\<Plug>JumpToVerticalOccurrenceReinsert" : ''), l:count)
+    endif
 endfunction
-function! JumpToVerticalOccurrence#QueriedBackward( mode )
-    return s:Jump('query', a:mode, 'b')
+function! JumpToVerticalOccurrence#QueriedBackward( mode, ... )
+    let l:operator = v:operator
+    let l:count = v:count1
+    call s:Jump((a:0 ? 'repeat' : 'query'), a:mode, 'b')
+    if a:mode ==# 'o'
+	silent! call repeat#set(l:operator . "\<Plug>JumpToVerticalOccurrenceQueriedRepeatBackward" . (l:operator ==# 'c' ? "\<Plug>JumpToVerticalOccurrenceReinsert" : ''), l:count)
+    endif
 endfunction
 
 function! JumpToVerticalOccurrence#CharUnderCursorForward( mode )

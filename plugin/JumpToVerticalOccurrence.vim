@@ -10,6 +10,8 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"	004	14-Jan-2014	FIX: Work around missing autoload of Funcrefs in
+"				Vim 7.0/1.
 "	003	11-Jan-2014	Add ]! / [! variant that jumps to last
 "				continuous occurrence of character under cursor.
 "	002	03-Jan-2014	Change default mapping from ,j / ,k to ]V / [V.
@@ -47,6 +49,8 @@ endif
 
 
 "- mappings --------------------------------------------------------------------
+
+if v:version < 702 | runtime autoload/JumpToVerticalOccurrence.vim | endif  " The Funcref doesn't trigger the autoload in older Vim versions.
 
 call CountJump#Motion#MakeBracketMotionWithJumpFunctions(
 \   '', g:JumpToVerticalOccurrence_CharUnderCursorMapping, '',

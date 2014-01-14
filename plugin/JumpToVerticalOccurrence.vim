@@ -10,6 +10,8 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"	005	15-Jan-2014	ENH: Implement repeat of operator-pending
+"				]V{char} mappings without re-querying the {char}.
 "	004	14-Jan-2014	FIX: Work around missing autoload of Funcrefs in
 "				Vim 7.0/1.
 "	003	11-Jan-2014	Add ]! / [! variant that jumps to last
@@ -64,6 +66,12 @@ call CountJump#Motion#MakeBracketMotionWithJumpFunctions(
 \   function('JumpToVerticalOccurrence#QueriedBackward'),
 \   '', '', 0
 \)
+" Additional repeat mappings to avoid the re-query on repeat of the
+" operator-pending mappings.
+onoremap <Plug>JumpToVerticalOccurrenceQueriedRepeatForward  :<C-u>call call(function('JumpToVerticalOccurrence#QueriedForward'), ['o', 1])<CR>
+onoremap <Plug>JumpToVerticalOccurrenceQueriedRepeatBackward :<C-u>call call(function('JumpToVerticalOccurrence#QueriedBackward'), ['o', 1])<CR>
+inoremap <Plug>JumpToVerticalOccurrenceReinsert <C-r>.<Esc>
+
 call CountJump#Motion#MakeBracketMotionWithJumpFunctions(
 \   '', g:JumpToVerticalOccurrence_NonWhitespaceMapping, '',
 \   function('JumpToVerticalOccurrence#NonWhitespaceForward'),

@@ -59,6 +59,8 @@ USAGE					      *JumpToVerticalOccurrence-usage*
 [!		    To the first continuous occurrence of the character under
 		    the cursor in the same screen column. With any [count],
 		    skips over whitespace and shorter lines.
+		    Mnemonic: The ! looks like a column, with the dot marking
+		    the jump target.
 
 ==============================================================================
 INSTALLATION			       *JumpToVerticalOccurrence-installation*
@@ -87,6 +89,7 @@ To change the default motion mappings, use: >
     let g:JumpToVerticalOccurrence_CharUnderCursorMapping = 'v'
     let g:JumpToVerticalOccurrence_QueriedMapping = 'V'
     let g:JumpToVerticalOccurrence_NonWhitespaceMapping = '<Bar>'
+    let g:JumpToVerticalOccurrence_LastSameCharMapping = '!'
 To also change the [ / ] prefix to something else, follow the instructions for
 |CountJump-remap-motions|. (This requires CountJump 1.60.)
 

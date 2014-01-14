@@ -11,6 +11,8 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"	003	11-Jan-2014	Implement jump to last continuous occurrence of
+"				character under cursor variant.
 "	002	03-Jan-2014	Implement jump to character under cursor
 "				variant.
 "				Implement jump to non-whitespace character in
@@ -32,12 +34,43 @@ function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
     endif
 
     let l:beyondLnum = search(l:beyondColumnCharPattern, a:directionFlag . 'nw')
-    let l:lastSameLnum = l:beyondLnum + (empty(a:directionFlag) ? -1 : 1)
-echomsg '****' string(l:beyondLnum) string(l:lastSameLnum)
-    if l:beyondLnum && (
-    \   empty(a:directionFlag)  && l:lastSameLnum > line('.') ||
-    \   a:directionFlag ==# 'b' && l:lastSameLnum < line('.')
-    \)
+    if l:beyondLnum
+	if empty(a:directionFlag)
+	    let l:lastSameLnum = l:beyondLnum - 1
+	    if l:lastSameLnum <= line('.')
+		" Search has wrapped around.
+		if line('.') < line('$')
+		    " Where there are still following lines, move to the last
+		    " one.
+		    let l:lastSameLnum = line('$')
+		elseif l:beyondLnum > 1
+		    " When at the last line and there are same columns at the
+		    " beginning, wrap around to the last same column at the
+		    " beginning of the buffer.
+		else
+		    execute "normal! \<C-\>\<C-n>\<Esc>" | " Beep.
+		    return
+		endif
+	    endif
+	else    " backward
+	    let l:lastSameLnum = l:beyondLnum + 1
+	    if l:lastSameLnum >= line('.')
+		" Search has wrapped around.
+		if line('.') > 1
+		    " Where there are still previous lines, move to the first
+		    " one.
+		    let l:lastSameLnum = 1
+		elseif l:beyondLnum < line('$')
+		    " When at the first line and there are same columns at the
+		    " end, wrap around to the first same column at the end of
+		    " the buffer.
+		else
+		    execute "normal! \<C-\>\<C-n>\<Esc>" | " Beep.
+		    return
+		endif
+	    endif
+	endif
+
 	if a:mode ==? 'v'
 	    normal! gv
 	endif

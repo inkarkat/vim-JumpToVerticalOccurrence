@@ -1,6 +1,7 @@
 " JumpToVerticalOccurrence.vim: Like f{char}, but searching the same screen column, not line.
 "
 " DEPENDENCIES:
+"   - ingo/motion/omap.vim autoload script
 "   - ingo/query/get.vim autoload script
 "   - ingo/text.vim autoload script
 "   - CountJump.vim autoload script
@@ -145,7 +146,7 @@ function! JumpToVerticalOccurrence#QueriedForward( mode, ... )
     let l:count = v:count1
     call s:Jump((a:0 ? 'repeat' : 'query'), a:mode, '')
     if a:mode ==# 'o'
-	silent! call repeat#set(l:operator . "\<Plug>JumpToVerticalOccurrenceQueriedRepeatForward" . (l:operator ==# 'c' ? "\<Plug>JumpToVerticalOccurrenceReinsert" : ''), l:count)
+	call ingo#motion#omap#repeat("\<Plug>JumpToVerticalOccurrenceQueriedRepeatForward", l:operator, l:count)
     endif
 endfunction
 function! JumpToVerticalOccurrence#QueriedBackward( mode, ... )
@@ -153,7 +154,7 @@ function! JumpToVerticalOccurrence#QueriedBackward( mode, ... )
     let l:count = v:count1
     call s:Jump((a:0 ? 'repeat' : 'query'), a:mode, 'b')
     if a:mode ==# 'o'
-	silent! call repeat#set(l:operator . "\<Plug>JumpToVerticalOccurrenceQueriedRepeatBackward" . (l:operator ==# 'c' ? "\<Plug>JumpToVerticalOccurrenceReinsert" : ''), l:count)
+	call ingo#motion#omap#repeat("\<Plug>JumpToVerticalOccurrenceQueriedRepeatBackward", l:operator, l:count)
     endif
 endfunction
 

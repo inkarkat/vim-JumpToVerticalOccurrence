@@ -70,7 +70,6 @@ call CountJump#Motion#MakeBracketMotionWithJumpFunctions(
 " operator-pending mappings.
 onoremap <Plug>JumpToVerticalOccurrenceQueriedRepeatForward  :<C-u>call call(function('JumpToVerticalOccurrence#QueriedForward'), ['o', 1])<CR>
 onoremap <Plug>JumpToVerticalOccurrenceQueriedRepeatBackward :<C-u>call call(function('JumpToVerticalOccurrence#QueriedBackward'), ['o', 1])<CR>
-inoremap <Plug>JumpToVerticalOccurrenceReinsert <C-r>.<Esc>
 
 call CountJump#Motion#MakeBracketMotionWithJumpFunctions(
 \   '', g:JumpToVerticalOccurrence_NonWhitespaceMapping, '',

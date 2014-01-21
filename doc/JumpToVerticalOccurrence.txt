@@ -77,8 +77,9 @@ DEPENDENCIES			       *JumpToVerticalOccurrence-dependencies*
 
 - Requires Vim 7.0 or higher.
 - Requires the CountJump plugin (vimscript #3130), version 1.60 or higher.
-- Requires the |ingo-library.vim| plugin (vimscript #4433), version 1.005 or
+- Requires the |ingo-library.vim| plugin (vimscript #4433), version 1.016 or
   higher.
+- repeat.vim (vimscript #2136) plugin (optional)
 
 ==============================================================================
 CONFIGURATION			      *JumpToVerticalOccurrence-configuration*

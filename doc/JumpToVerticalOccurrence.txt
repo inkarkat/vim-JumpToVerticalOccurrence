@@ -14,9 +14,20 @@ history				|JumpToVerticalOccurrence-history|
 ==============================================================================
 DESCRIPTION				*JumpToVerticalOccurrence-description*
 
-This plugin ...
+The |f| / |F| commands allow you to quickly go to next / previous occurrences
+of a character in the same line (with plugins also across lines), but are
+limited to horizontal movement. But vertical movement, restricted to the same
+screen column the cursor is in, across lines would often be helpful, too.
 
-HOW IT WORKS								     *
+This plugin provides a |]V|{char} mapping that works just like |f|, but
+vertically. The |]v| mapping is similar, but uses the character under the
+cursor instead of querying for it (which is a more common use case when moving
+vertically).
+The ]| mapping is helpful for jumping out of indented blocks, or to filled-out
+columns, as it moves to the next non-whitespace in the current column.
+In long sorted lists, one often wants to go to the first / last instance of
+the current character (e.g. to move from "[A]ddress" to "Aardvark" or the last
+"Azure" before the entries with "B" begin). The |]!| mapping does that.
 
 SOURCE									     *
 
@@ -24,10 +35,12 @@ The ]| mapping was inspired by
     http://stackoverflow.com/questions/20882722/move-to-the-next-row-which-has-non-white-space-character-in-the-same-column-in-v
 
 SEE ALSO								     *
-(Plugins offering complementary functionality, or plugins using this library.)
 
-RELATED WORKS								     *
-(Alternatives from other authors, other approaches, references not used here.)
+- The |JumpToLastOccurrence.vim| plugin (vimscript #3386) still moves
+  horizontally in the same line, but counts the characters in reverse,
+  starting from the last one.
+- Check out the |CountJump.vim| plugin page (vimscript #3130) for a full list
+  of motions and text objects powered by it.
 
 ==============================================================================
 USAGE					      *JumpToVerticalOccurrence-usage*
@@ -106,7 +119,7 @@ IDEAS					      *JumpToVerticalOccurrence-ideas*
 ==============================================================================
 HISTORY					    *JumpToVerticalOccurrence-history*
 
-GOAL
+1.00	22-Jan-2014
 First published version.
 
 0.01	02-Jan-2014

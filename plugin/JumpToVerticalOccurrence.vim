@@ -10,7 +10,7 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
-"	005	15-Jan-2014	ENH: Implement repeat of operator-pending
+"   1.00.005	15-Jan-2014	ENH: Implement repeat of operator-pending
 "				]V{char} mappings without re-querying the {char}.
 "	004	14-Jan-2014	FIX: Work around missing autoload of Funcrefs in
 "				Vim 7.0/1.

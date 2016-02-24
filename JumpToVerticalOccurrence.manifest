@@ -1,0 +1,3 @@
+autoload/JumpToVerticalOccurrence.vim
+plugin/JumpToVerticalOccurrence.vim
+doc/JumpToVerticalOccurrence.txt

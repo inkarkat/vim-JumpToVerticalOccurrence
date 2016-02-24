@@ -13,7 +13,7 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
-"   	004	15-Jan-2014	ENH: Implement repeat of operator-pending
+"   1.00.004	15-Jan-2014	ENH: Implement repeat of operator-pending
 "				]V{char} mapping without re-querying the {char}.
 "				Since Vim 7.3.918, Vim will re-invoke the motion
 "				function, but that will still re-query. We need

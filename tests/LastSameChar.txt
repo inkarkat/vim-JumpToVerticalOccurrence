@@ -1,0 +1,296 @@
+o:\tools\wave\yeep-Beep-Beep.wav
+o:\tools\wave\yeep-Beep-Beep2.wav
+o:\tools\wave\yood_Morning.wav
+o:\tools\wave\yood_News.wav
+o:\tools\wave\Hampsterdance new.wav
+o:\tools\wave\Hampsterdance.wav
+o:\tools\wave\I'm hit.wav
+o:\tools\wave\Knock-Knock-Knock.wav
+o:\tools\wave\LowBattery.wav
+o:\tools\wave\Piezo.wav
+o:\tools\wave\Ringing.wav
+o:\tools\wave\Rooster.wav
+o:\tools\wave\Ticktac.wav
+o:\tools\wave\aah.wav
+o:\tools\wave\accord.wav
+o:\tools\wave\akkord.wav
+o:\tools\wave\alert andromeda.wav
+o:\tools\wave\alert bell.wav
+o:\tools\wave\alert.wav
+o:\tools\wave\bell Postman.wav
+o:\tools\wave\bell pure.wav
+o:\tools\wave\bell ringing.wav
+o:\tools\wave\bip.wav
+o:\tools\wave\bip2.wav
+o:\tools\wave\bip3.wav
+o:\tools\wave\bip4.wav
+o:\tools\wave\bip5.wav
+o:\tools\wave\bip6.wav
+o:\tools\wave\blim.wav
+o:\tools\wave\blim2.wav
+o:\tools\wave\bling.wav
+o:\tools\wave\bobobah.wav
+o:\tools\wave\boing.wav
+o:\tools\wave\bomb long.wav
+o:\tools\wave\bomb short.wav
+o:\tools\wave\bomb.wav
+o:\tools\wave\buh.wav
+o:\tools\wave\buzzer buzzer.wav
+o:\tools\wave\buzzer.wav
+o:\tools\wave\camera shutter.wav
+o:\tools\wave\chirp chirp 2.wav
+o:\tools\wave\chirp chirp.wav
+o:\tools\wave\chirp.wav
+o:\tools\wave\chopsticks.wav
+o:\tools\wave\chord long.wav
+o:\tools\wave\chord1.wav
+o:\tools\wave\chord2.wav
+o:\tools\wave\connected.wav
+o:\tools\wave\cough 1.wav
+o:\tools\wave\cough 2.wav
+o:\tools\wave\cough 3.wav
+o:\tools\wave\counter.wav
+o:\tools\wave\crowd booing.wav
+o:\tools\wave\crowd cheering.wav
+o:\tools\wave\developers.wav
+o:\tools\wave\ding.wav
+o:\tools\wave\ding1.wav
+o:\tools\wave\ding2.wav
+o:\tools\wave\ding3.wav
+o:\tools\wave\dip.wav
+o:\tools\wave\dong.wav
+o:\tools\wave\explosion.wav
+o:\tools\wave\fail.wav
+o:\tools\wave\fanfare.wav
+o:\tools\wave\fire brigade.wav
+o:\tools\wave\fire siren.wav
+o:\tools\wave\flens.wav
+o:\tools\wave\freizeichen.wav
+o:\tools\wave\giggle.wav
+o:\tools\wave\good job.wav
+o:\tools\wave\great.wav
+o:\tools\wave\groan.wav
+o:\tools\wave\guitar long.wav
+o:\tools\wave\guitar1.wav
+o:\tools\wave\guitar2.wav
+o:\tools\wave\guitar3.wav
+o:\tools\wave\half\Beep-Beep-Beep.wav
+o:\tools\wave\half\Beep-Beep-Beep2.wav
+o:\tools\wave\half\Good_Morning.wav
+o:\tools\wave\half\Good_News.wav
+
+o:\tools\wave\half\Hampsterdance new.wav
+o:\tools\wave\half\Hampsterdance.wav
+o:\tools\wave\half\I'm hit.wav
+o:\tools\wave\half\Knock-Knock-Knock.wav
+o:\tools\wave\half\LowBattery.wav
+o:\tools\wave\half\Piezo.wav
+o:\tools\wave\half\Ringing.wav
+
+o:\tools\wave\half\Rooster.wav
+o:\tools\wave\half\Ticktac.wav
+o:\tools\wave\half\aah.wav
+o:\tools\wave\half\accord.wav
+o:\tools\wave\half\akkord.wav
+o:\tools\wave\half\alert andromeda.wav
+o:\tools\wave\half\alert bell.wav
+o:\tools\wave\half\alert.wav
+o:\tools\wave\half\bell Postman.wav
+o:\tools\wave\half\bell pure.wav
+o:\tools\wave\half\bell ringing.wav
+o:\tools\wave\half\bip.wav
+o:\tools\wave\half\bip2.wav
+o:\tools\wave\half\bip3.wav
+o:\tools\wave\half\bip4.wav
+o:\tools\wave\half\bip5.wav
+o:\tools\wave\half\bip6.wav
+o:\tools\wave\half\blim.wav
+o:\tools\wave\half\blim2.wav
+o:\tools\wave\half\bling.wav
+o:\tools\wave\half\bobobah.wav
+o:\tools\wave\half\boing.wav
+o:\tools\wave\half\bomb long.wav
+o:\tools\wave\half\bomb short.wav
+o:\tools\wave\half\bomb.wav
+o:\tools\wave\half\buh.wav
+o:\tools\wave\half\buzzer buzzer.wav
+o:\tools\wave\half\buzzer.wav
+o:\tools\wave\half\camera shutter.wav
+o:\tools\wave\half\chirp chirp.wav
+o:\tools\wave\half\chirp chrip 2.wav
+o:\tools\wave\half\chirp.wav
+o:\tools\wave\half\chopsticks.wav
+o:\tools\wave\half\chord long.wav
+o:\tools\wave\half\chord1.wav
+o:\tools\wave\half\chord2.wav
+o:\tools\wave\half\connected.wav
+o:\tools\wave\half\cough 1.wav
+o:\tools\wave\half\cough 2.wav
+o:\tools\wave\half\cough 3.wav
+o:\tools\wave\half\counter.wav
+o:\tools\wave\half\crowd booing.wav
+o:\tools\wave\half\crowd cheering.wav
+o:\tools\wave\half\developers.wav
+o:\tools\wave\half\ding.wav
+o:\tools\wave\half\ding1.wav
+o:\tools\wave\half\ding2.wav
+o:\tools\wave\half\ding3.wav
+o:\tools\wave\half\dip.wav
+o:\tools\wave\half\dong.wav
+o:\tools\wave\half\explosion.wav
+o:\tools\wave\half\fail.wav
+o:\tools\wave\half\fanfare.wav
+o:\tools\wave\half\fire brigade.wav
+o:\tools\wave\half\fire siren.wav
+o:\tools\wave\half\flens.wav
+o:\tools\wave\half\freizeichen.wav
+o:\tools\wave\half\giggle.wav
+o:\tools\wave\half\good job.wav
+o:\tools\wave\half\great.wav
+o:\tools\wave\half\groan.wav
+o:\tools\wave\half\guitar long.wav
+o:\tools\wave\half\guitar1.wav
+o:\tools\wave\half\guitar2.wav
+o:\tools\wave\half\guitar3.wav
+o:\tools\wave\half\hello.wav
+o:\tools\wave\half\honking car.wav
+o:\tools\wave\half\keiner ist so gut wie du, so wie du, so wie du.wav
+o:\tools\wave\half\keiner ist so gut wie du, so wie du.wav
+o:\tools\wave\half\klingeln.wav
+o:\tools\wave\half\klirr.wav
+o:\tools\wave\half\klirr1.wav
+o:\tools\wave\half\laugh long.wav
+o:\tools\wave\half\laugh.wav
+o:\tools\wave\half\meepmeep.wav
+o:\tools\wave\half\metronome.wav
+o:\tools\wave\half\mmm.wav
+o:\tools\wave\half\not allowed beep.wav
+o:\tools\wave\half\ocean ship.wav
+o:\tools\wave\half\oh fuck.wav
+o:\tools\wave\half\ohoh.wav
+o:\tools\wave\half\ohoh1.wav
+o:\tools\wave\half\ohoh2.wav
+o:\tools\wave\half\ohyes.wav
+o:\tools\wave\half\on time.wav
+o:\tools\wave\half\perfect.wav
+o:\tools\wave\half\phone TaDa.wav
+o:\tools\wave\half\phone alarm.wav
+o:\tools\wave\half\phone.wav
+o:\tools\wave\half\piano Starry_night.wav
+o:\tools\wave\half\police siren.wav
+o:\tools\wave\half\pop1.wav
+o:\tools\wave\half\pop2.wav
+o:\tools\wave\half\power line.wav
+o:\tools\wave\half\redalert.wav
+o:\tools\wave\half\reticulating splines.wav
+o:\tools\wave\half\rifle.wav
+o:\tools\wave\half\rifles.wav
+o:\tools\wave\half\rock riff.wav
+o:\tools\wave\half\sad trombone.wav
+o:\tools\wave\half\scream.wav
+o:\tools\wave\half\see you.wav
+o:\tools\wave\half\ship whistle.wav
+o:\tools\wave\half\sigh female.wav
+o:\tools\wave\half\snore.wav
+o:\tools\wave\half\spit out.wav
+o:\tools\wave\half\start.wav
+o:\tools\wave\half\tataa.wav
+o:\tools\wave\half\throat female sigh.wav
+o:\tools\wave\half\throat female stern.wav
+o:\tools\wave\half\throat female.wav
+o:\tools\wave\half\throat long 2.wav
+o:\tools\wave\half\throat long 3.wav
+o:\tools\wave\half\throat long female.wav
+o:\tools\wave\half\throat long.wav
+o:\tools\wave\half\throat short 2.wav
+o:\tools\wave\half\throat short.wav
+o:\tools\wave\half\throat twice.wav
+o:\tools\wave\half\throat very long.wav
+o:\tools\wave\half\throat.wav
+o:\tools\wave\half\urhurh.wav
+o:\tools\wave\half\very good.wav
+o:\tools\wave\half\water bubbles.wav
+o:\tools\wave\half\water.wav
+o:\tools\wave\half\we did it.wav
+o:\tools\wave\half\whistle.wav
+o:\tools\wave\half\wild animal.wav
+o:\tools\wave\half\wind.wav
+o:\tools\wave\half\yawn.wav
+o:\tools\wave\half\you did it.wav
+o:\tools\wave\half\yousure.wav
+o:\tools\wave\hello.wav
+o:\tools\wave\honking car.wav
+o:\tools\wave\keiner ist so gut wie du, so wie du, so wie du.wav
+o:\tools\wave\keiner ist so gut wie du, so wie du.wav
+o:\tools\wave\klingeln.wav
+o:\tools\wave\klirr.wav
+o:\tools\wave\klirr1.wav
+o:\tools\wave\laugh long.wav
+o:\tools\wave\laugh.wav
+o:\tools\wave\meepmeep.wav
+o:\tools\wave\metronome.wav
+o:\tools\wave\mmm.wav
+o:\tools\wave\not allowed beep.wav
+o:\tools\wave\ocean ship.wav
+o:\tools\wave\oh fuck.wav
+o:\tools\wave\ohoh.wav
+o:\tools\wave\ohoh1.wav
+o:\tools\wave\ohoh2.wav
+o:\tools\wave\ohyes.wav
+o:\tools\wave\on time.wav
+o:\tools\wave\perfect.wav
+o:\tools\wave\phone TaDa.wav
+o:\tools\wave\phone alarm.wav
+o:\tools\wave\phone.wav
+o:\tools\wave\piano Starry_night.wav
+o:\tools\wave\police siren.wav
+o:\tools\wave\pop1.wav
+o:\tools\wave\pop2.wav
+o:\tools\wave\power line.wav
+o:\tools\wave\rag fair intro.wav
+o:\tools\wave\rag fair loop.wav
+o:\tools\wave\redalert.wav
+o:\tools\wave\reticulating splines.wav
+o:\tools\wave\rifle.wav
+o:\tools\wave\rifles.wav
+o:\tools\wave\rock riff.wav
+o:\tools\wave\sad trombone.wav
+o:\tools\wave\scream.wav
+o:\tools\wave\see you.wav
+o:\tools\wave\ship whistle.wav
+o:\tools\wave\sigh female.wav
+o:\tools\wave\snore.wav
+o:\tools\wave\solari.wav
+o:\tools\wave\spit out.wav
+o:\tools\wave\start.wav
+o:\tools\wave\tataa.wav
+o:\tools\wave\throat female sigh.wav
+o:\tools\wave\throat female stern.wav
+                   xyz
+o:\tools\wave\throat female.wav
+o:\tools\wave\throat long 2.wav
+o:\tools\wave\throat long 3.wav
+		    xyz
+o:\tools\wave\throat long female.wav
+
+o:\tools\wave\throat long.wav
+o:\tools\wave\throat short 2.wav
+o:\	      tlsdfksdf
+o:\tools\wave\throat short.wav
+o:\tools\wave\throat twice.wav
+o:\tools\wave\throat very long.wav
+o:\tools\wave\throat.wav
+o:\tools\wave\urhurh.wav
+o:\tools\wave\very good.wav
+o:\tools\wave\water bubbles.wav
+o:\tools\wave\water.wav
+o:\tools\wave\we did it.wav
+o:\tools\wave\whistle.wav
+o:\tools\wave\wild animal.wav
+o:\tools\wave\wind.wav
+o:\tools\wave\yawn.wav
+o:\tools\wave\you did it.wav
+o:\tools\wave\you did it.wav
+o:\tools\wave\you did it.wav
+o:\tools\wave\you did it.wav
+o:\tools\wave\yousure.wav

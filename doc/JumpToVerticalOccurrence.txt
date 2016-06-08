@@ -42,6 +42,11 @@ SEE ALSO								     *
 - Check out the |CountJump.vim| plugin page (vimscript #3130) for a full list
   of motions and text objects powered by it.
 
+RELATED WORKS								     *
+
+- columnmove (vimscript #4880) defines f/t/;/, commands as well as w/e/b/ge
+  commands that work vertically, either skipping or opening closed folds.
+
 ==============================================================================
 USAGE					      *JumpToVerticalOccurrence-usage*
 

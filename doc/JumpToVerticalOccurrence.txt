@@ -39,6 +39,8 @@ SEE ALSO								     *
 - The |JumpToLastOccurrence.vim| plugin (vimscript #3386) still moves
   horizontally in the same line, but counts the characters in reverse,
   starting from the last one.
+- The |JumpToVerticalBlock.vim| plugin (vimscript #0000) has motions that
+  operate like |W| and |E|, but vertically.
 - Check out the |CountJump.vim| plugin page (vimscript #3130) for a full list
   of motions and text objects powered by it.
 
@@ -112,7 +114,7 @@ To change the default motion mappings, use: >
     let g:JumpToVerticalOccurrence_NonWhitespaceMapping = '<Bar>'
     let g:JumpToVerticalOccurrence_LastSameCharMapping = '!'
 To also change the [ / ] prefix to something else, follow the instructions for
-|CountJump-remap-motions|. (This requires CountJump 1.60.)
+|CountJump-remap-motions|.
 
 ==============================================================================
 LIMITATIONS				*JumpToVerticalOccurrence-limitations*

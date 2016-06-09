@@ -46,6 +46,8 @@ RELATED WORKS								     *
 
 - columnmove (vimscript #4880) defines f/t/;/, commands as well as w/e/b/ge
   commands that work vertically, either skipping or opening closed folds.
+- columnMove (vimscript #5402) moves to the end / start of vertical blocks of
+  non-whitespace.
 
 ==============================================================================
 USAGE					      *JumpToVerticalOccurrence-usage*
@@ -131,7 +133,7 @@ First published version.
 Started development.
 
 ==============================================================================
-Copyright: (C) 2014 Ingo Karkat
+Copyright: (C) 2014-2016 Ingo Karkat
 The VIM LICENSE applies to this plugin; see |copyright|.
 
 Maintainer:	Ingo Karkat <ingo@karkat.de>

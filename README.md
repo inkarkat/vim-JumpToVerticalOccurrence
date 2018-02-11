@@ -29,6 +29,8 @@ the current character (e.g. to move from "[A]ddress" to "Aardvark" or the last
 - The JumpToLastOccurrence.vim plugin ([vimscript #3386](http://www.vim.org/scripts/script.php?script_id=3386)) still moves
   horizontally in the same line, but counts the characters in reverse,
   starting from the last one.
+- The JumpToVerticalBlock.vim plugin ([vimscript #5657](http://www.vim.org/scripts/script.php?script_id=5657)) has motions that
+  operate like W and E, but vertically.
 - Check out the CountJump.vim plugin page ([vimscript #3130](http://www.vim.org/scripts/script.php?script_id=3130)) for a full list
   of motions and text objects powered by it.
 

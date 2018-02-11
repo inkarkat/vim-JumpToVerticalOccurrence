@@ -12,10 +12,10 @@ O:\tools\	p5.wav
 O:\Fools\wave\blim.wav
 O:\Fools\wave\blim2.wav
 O:\Fools\wave\bling.wav
-O:\tools\wave\ding.wav
-O:\tools\wave\ding1.wav
+O:/tools/wave/ding.wav
+O:/tools/wave/ding1.wav
 
-O:\tools\wave\ding2.wav
+O:/tools/wave/ding2.wav
                     wav
 O:\tools\wave\ding3.wav
 

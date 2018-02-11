@@ -7,7 +7,7 @@
 "   - CountJump.vim autoload script
 "   - repeat.vim (vimscript #2136) autoload script (optional)
 "
-" Copyright: (C) 2014 Ingo Karkat
+" Copyright: (C) 2014-2018 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
@@ -48,13 +48,14 @@ function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
 	\)
     endif
 
+    let l:currentLnum = line('.')
     let l:beyondLnum = search(l:beyondColumnCharPattern, a:directionFlag . 'nw')
     if l:beyondLnum
 	if empty(a:directionFlag)
 	    let l:lastSameLnum = l:beyondLnum - 1
-	    if l:lastSameLnum <= line('.')
+	    if l:lastSameLnum <= l:currentLnum
 		" Search has wrapped around.
-		if line('.') < line('$')
+		if l:currentLnum < line('$')
 		    " Where there are still following lines, move to the last
 		    " one.
 		    let l:lastSameLnum = line('$')
@@ -69,9 +70,9 @@ function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
 	    endif
 	else    " backward
 	    let l:lastSameLnum = l:beyondLnum + 1
-	    if l:lastSameLnum >= line('.')
+	    if l:lastSameLnum >= l:currentLnum
 		" Search has wrapped around.
-		if line('.') > 1
+		if l:currentLnum > 1
 		    " Where there are still previous lines, move to the first
 		    " one.
 		    let l:lastSameLnum = 1

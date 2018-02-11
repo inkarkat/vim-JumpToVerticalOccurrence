@@ -34,6 +34,25 @@
 "				the same column.
 "	001	02-Jan-2014	file creation
 
+function! s:NextLnum( virtCol, pattern, count, offset, beyondLnum )
+    let l:lnum = a:beyondLnum + a:offset
+    if a:count && a:pattern !~# '^\s$'
+	" We had to search for different non-whitespace character in order to
+	" skip shorter lines or whitespace at that column. Now, we cannot simply
+	" add a:offset; this might be a shorter line or one with whitespace
+	" there. In that case, we need to retry until we find a line with a
+	" different non-whitespace character.
+	" Note: Cannot use search() here; the cursor position hasn't changed
+	" yet, and we cannot do so now because of potentially having to revert
+	" it.
+	let l:nonWhitespacePattern = printf('\C\V\%%%dv\S', a:virtCol)
+	while getline(l:lnum) !~# l:nonWhitespacePattern
+	    let l:lnum = ingo#lnum#AddOffsetWithWrapping(l:lnum, a:offset)
+	endwhile
+    endif
+
+    return l:lnum
+endfunction
 function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
     if a:count
 	" Search for a different non-whitespace character in the exact column.
@@ -52,7 +71,7 @@ function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
     let l:beyondLnum = search(l:beyondColumnCharPattern, a:directionFlag . 'nw')
     if l:beyondLnum
 	if empty(a:directionFlag)
-	    let l:lastSameLnum = l:beyondLnum - 1
+	    let l:lastSameLnum = s:NextLnum(a:virtCol, a:pattern, a:count, -1, l:beyondLnum)
 	    if l:lastSameLnum == l:currentLnum
 		" We've already been on the last occurrence of the character.
 		execute "normal! \<C-\>\<C-n>\<Esc>" | " Beep.
@@ -73,7 +92,7 @@ function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
 		endif
 	    endif
 	else    " backward
-	    let l:lastSameLnum = l:beyondLnum + 1
+	    let l:lastSameLnum = s:NextLnum(a:virtCol, a:pattern, a:count, 1, l:beyondLnum)
 	    if l:lastSameLnum == l:currentLnum
 		" We've already been on the last occurrence of the character.
 		execute "normal! \<C-\>\<C-n>\<Esc>" | " Beep.

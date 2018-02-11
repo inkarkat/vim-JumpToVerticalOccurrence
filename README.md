@@ -91,7 +91,7 @@ To uninstall, use the :RmVimball command.
 
 - Requires Vim 7.0 or higher.
 - Requires the CountJump plugin ([vimscript #3130](http://www.vim.org/scripts/script.php?script_id=3130)), version 1.60 or higher.
-- Requires the ingo-library.vim plugin ([vimscript #4433](http://www.vim.org/scripts/script.php?script_id=4433)), version 1.016 or
+- Requires the ingo-library.vim plugin ([vimscript #4433](http://www.vim.org/scripts/script.php?script_id=4433)), version 1.034 or
   higher.
 - repeat.vim ([vimscript #2136](http://www.vim.org/scripts/script.php?script_id=2136)) plugin (optional)
 
@@ -119,6 +119,13 @@ https://github.com/inkarkat/vim-JumpToVerticalOccurrence/issues or email
 
 HISTORY
 ------------------------------------------------------------------------------
+
+##### 1.01    RELEASEME
+- BUG: ]! on a single occurrence of a character in that column mistakenly
+  jumps to end of buffer.
+- BUG: <count>]! may jump too far and land on whitespace instead of the last
+  line that contains the current character at the current column.
+  __You need to update to ingo-library ([vimscript #4433](http://www.vim.org/scripts/script.php?script_id=4433)) version 1.034!__
 
 ##### 1.00    22-Jan-2014
 - First published version.

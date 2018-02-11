@@ -53,7 +53,11 @@ function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
     if l:beyondLnum
 	if empty(a:directionFlag)
 	    let l:lastSameLnum = l:beyondLnum - 1
-	    if l:lastSameLnum <= l:currentLnum
+	    if l:lastSameLnum == l:currentLnum
+		" We've already been on the last occurrence of the character.
+		execute "normal! \<C-\>\<C-n>\<Esc>" | " Beep.
+		return
+	    elseif l:lastSameLnum < l:currentLnum
 		" Search has wrapped around.
 		if l:currentLnum < line('$')
 		    " Where there are still following lines, move to the last
@@ -70,7 +74,11 @@ function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
 	    endif
 	else    " backward
 	    let l:lastSameLnum = l:beyondLnum + 1
-	    if l:lastSameLnum >= l:currentLnum
+	    if l:lastSameLnum == l:currentLnum
+		" We've already been on the last occurrence of the character.
+		execute "normal! \<C-\>\<C-n>\<Esc>" | " Beep.
+		return
+	    elseif l:lastSameLnum > l:currentLnum
 		" Search has wrapped around.
 		if l:currentLnum > 1
 		    " Where there are still previous lines, move to the first

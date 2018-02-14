@@ -1,0 +1,26 @@
+O:\Fools\wave\bell postman.wav
+O:\Fools\wave\bell pure.wav
+O:\Fools\wave\bell ringing.wav
+O:\tools\wave\bip.wav
+O:\tools\wave\bip2.wav
+O:\tools\wave\bip3.wav
+O:\tools\    \bip4.wav
+O:\tools\	p5.wav
+		p6.wav
+                  .wav
+		p7.wav
+O:\Fools\wave\blim.wav
+O:\Fools\wave\blim2.wav
+O:\Fools\wave\bling.wav
+O:/tools/wave/ding.wav
+O:/tools/wave/ding1.wav
+
+O:/tools/wave/ding2.wav
+                    wav
+O:\tools\wave\ding3.wav
+
+O:\tools\wave\ding4.wav
+O:\Tools\wave\dip.wav
+O:\Tools\wave\dong.wav
+O:\tools\wave\bell pure.wav
+O:\Tools\wave\bell alarming.wav

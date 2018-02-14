@@ -7,33 +7,30 @@
 "   - CountJump.vim autoload script
 "   - repeat.vim (vimscript #2136) autoload script (optional)
 "
-" Copyright: (C) 2014 Ingo Karkat
+" Copyright: (C) 2014-2018 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
-"
-" REVISION	DATE		REMARKS
-"   1.00.004	15-Jan-2014	ENH: Implement repeat of operator-pending
-"				]V{char} mapping without re-querying the {char}.
-"				Since Vim 7.3.918, Vim will re-invoke the motion
-"				function, but that will still re-query. We need
-"				to use repeat.vim and pass it a special repeat
-"				mapping that re-uses the stored {char}. Special
-"				handling of the "c"hange operator is taken from
-"				https://github.com/tek/vim-argh/blob/master/autoload/argh.vim#L54.
-"				In s:Jump, store the last queried char in s:char
-"				and re-use that on new "repeat" target.
-"				Add repeat.vim calls in
-"				JumpToVerticalOccurrence#Queried...() in case of
-"				omaps.
-"	003	11-Jan-2014	Implement jump to last continuous occurrence of
-"				character under cursor variant.
-"	002	03-Jan-2014	Implement jump to character under cursor
-"				variant.
-"				Implement jump to non-whitespace character in
-"				the same column.
-"	001	02-Jan-2014	file creation
 
+function! s:NextLnum( virtCol, pattern, count, offset, beyondLnum )
+    let l:lnum = a:beyondLnum + a:offset
+    if a:count && a:pattern !~# '^\s$'
+	" We had to search for different non-whitespace character in order to
+	" skip shorter lines or whitespace at that column. Now, we cannot simply
+	" add a:offset; this might be a shorter line or one with whitespace
+	" there. In that case, we need to retry until we find a line with a
+	" different non-whitespace character.
+	" Note: Cannot use search() here; the cursor position hasn't changed
+	" yet, and we cannot do so now because of potentially having to revert
+	" it.
+	let l:nonWhitespacePattern = printf('\C\V\%%%dv\S', a:virtCol)
+	while getline(l:lnum) !~# l:nonWhitespacePattern
+	    let l:lnum = ingo#lnum#AddOffsetWithWrapping(l:lnum, a:offset)
+	endwhile
+    endif
+
+    return l:lnum
+endfunction
 function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
     if a:count
 	" Search for a different non-whitespace character in the exact column.
@@ -48,13 +45,18 @@ function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
 	\)
     endif
 
+    let l:currentLnum = line('.')
     let l:beyondLnum = search(l:beyondColumnCharPattern, a:directionFlag . 'nw')
     if l:beyondLnum
 	if empty(a:directionFlag)
-	    let l:lastSameLnum = l:beyondLnum - 1
-	    if l:lastSameLnum <= line('.')
+	    let l:lastSameLnum = s:NextLnum(a:virtCol, a:pattern, a:count, -1, l:beyondLnum)
+	    if l:lastSameLnum == l:currentLnum
+		" We've already been on the last occurrence of the character.
+		execute "normal! \<C-\>\<C-n>\<Esc>" | " Beep.
+		return
+	    elseif l:lastSameLnum < l:currentLnum
 		" Search has wrapped around.
-		if line('.') < line('$')
+		if l:currentLnum < line('$')
 		    " Where there are still following lines, move to the last
 		    " one.
 		    let l:lastSameLnum = line('$')
@@ -68,10 +70,14 @@ function! s:LastSameJump( virtCol, pattern, count, directionFlag, mode )
 		endif
 	    endif
 	else    " backward
-	    let l:lastSameLnum = l:beyondLnum + 1
-	    if l:lastSameLnum >= line('.')
+	    let l:lastSameLnum = s:NextLnum(a:virtCol, a:pattern, a:count, 1, l:beyondLnum)
+	    if l:lastSameLnum == l:currentLnum
+		" We've already been on the last occurrence of the character.
+		execute "normal! \<C-\>\<C-n>\<Esc>" | " Beep.
+		return
+	    elseif l:lastSameLnum > l:currentLnum
 		" Search has wrapped around.
-		if line('.') > 1
+		if l:currentLnum > 1
 		    " Where there are still previous lines, move to the first
 		    " one.
 		    let l:lastSameLnum = 1

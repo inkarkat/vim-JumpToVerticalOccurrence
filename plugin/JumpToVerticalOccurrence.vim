@@ -4,27 +4,10 @@
 "   - JumpToVerticalOccurrence.vim autoload script
 "   - CountJump/Motion.vim autoload script
 "
-" Copyright: (C) 2014 Ingo Karkat
+" Copyright: (C) 2014-2018 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
-"
-" REVISION	DATE		REMARKS
-"   1.00.005	15-Jan-2014	ENH: Implement repeat of operator-pending
-"				]V{char} mappings without re-querying the {char}.
-"	004	14-Jan-2014	FIX: Work around missing autoload of Funcrefs in
-"				Vim 7.0/1.
-"	003	11-Jan-2014	Add ]! / [! variant that jumps to last
-"				continuous occurrence of character under cursor.
-"	002	03-Jan-2014	Change default mapping from ,j / ,k to ]V / [V.
-"				Change mapping configuration from
-"				<Plug>-mappings to configuration variables.
-"				Add ]v / [v variant that jumps to the character
-"				under the cursor. This is also useful for
-"				repeating the ]V mappings without the query.
-"				Add ]| / [| variant that jumps to non-whitespace
-"				character in the same column.
-"	001	02-Jan-2014	file creation
 
 " Avoid installing twice or when in unsupported Vim version.
 if exists('g:loaded_JumpToVerticalOccurrence') || (v:version < 700)

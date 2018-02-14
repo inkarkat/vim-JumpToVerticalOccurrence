@@ -122,7 +122,7 @@ https://github.com/inkarkat/vim-JumpToVerticalOccurrence/issues or email
 HISTORY
 ------------------------------------------------------------------------------
 
-##### 1.01    RELEASEME
+##### 1.01    14-Feb-2018
 - BUG: ]! on a single occurrence of a character in that column mistakenly
   jumps to end of buffer.
 - BUG: <count>]! may jump too far and land on whitespace instead of the last

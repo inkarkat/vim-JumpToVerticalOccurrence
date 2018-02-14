@@ -11,28 +11,6 @@
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
-"
-" REVISION	DATE		REMARKS
-"   1.00.004	15-Jan-2014	ENH: Implement repeat of operator-pending
-"				]V{char} mapping without re-querying the {char}.
-"				Since Vim 7.3.918, Vim will re-invoke the motion
-"				function, but that will still re-query. We need
-"				to use repeat.vim and pass it a special repeat
-"				mapping that re-uses the stored {char}. Special
-"				handling of the "c"hange operator is taken from
-"				https://github.com/tek/vim-argh/blob/master/autoload/argh.vim#L54.
-"				In s:Jump, store the last queried char in s:char
-"				and re-use that on new "repeat" target.
-"				Add repeat.vim calls in
-"				JumpToVerticalOccurrence#Queried...() in case of
-"				omaps.
-"	003	11-Jan-2014	Implement jump to last continuous occurrence of
-"				character under cursor variant.
-"	002	03-Jan-2014	Implement jump to character under cursor
-"				variant.
-"				Implement jump to non-whitespace character in
-"				the same column.
-"	001	02-Jan-2014	file creation
 
 function! s:NextLnum( virtCol, pattern, count, offset, beyondLnum )
     let l:lnum = a:beyondLnum + a:offset
